@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(ArticlesTableSeeder::class);
         $this->call(WinesTableSeeder::class);
+        factory(App\Player::class,30)->create();
     }
 }

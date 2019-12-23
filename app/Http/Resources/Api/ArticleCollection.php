@@ -17,12 +17,12 @@ class ArticleCollection extends JsonResource
     {
         return
         [
-            'identifer'=>$this->id,
+            'id'=>$this->id,
             'title'=>$this->title,
             'slug'=>$this->slug,
-            'overview'=>$this->excerpt,
-            'message'=>$this->body,
-            'articles'=>$this->user,
+            'excerpt'=>$this->excerpt,
+            'body'=>$this->body,
+            'author'=>$this->user,
         ];
     }
 

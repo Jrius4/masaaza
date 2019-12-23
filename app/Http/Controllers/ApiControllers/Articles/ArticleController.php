@@ -23,6 +23,9 @@ class ArticleController extends ApiController
      */
     public function index()
     {
+        // if(rand(1,10)<3){
+        //     abort(500, 'we could not retreive any article');
+        // }
         //get articles
         $articles = Article::paginate(15);
         //return collection of articles as resource
@@ -80,9 +83,16 @@ class ArticleController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Article $article)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+        ]);
+
+        $article->update($data);
+
+        return new ArticleResource($article);
     }
 
     /**
